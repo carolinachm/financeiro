@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/layout/LayoutPadrao">
+
+
+<section layout:fragment="conteudo">
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card hoverable">
+                        <div class="card-content black-text">
+                            <span class="card-title">Cadastro de Titulos</span>
+
+                            <div class="row">
+                                <form class="col s12" method="post" th:action="@{/titulos/novo}" th:object="${titulo}">
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="nome" type="text" class="validate" name="dataDeEmissao" th:field="*{dataDeEmissao}"
+                                                   th:classappend="${#fields.hasErrors('dataDeEmissao')} ? invalid"/>
+                                            <label for="nome" data-error="O campo nome é obrigatório">Data de Emissao</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id="dataDeValidade" type="text" class="validate" th:field="*{dataDeValidade}"
+                                                   th:classappend="${#fields.hasErrors('dataDeValidade')} ? invalid"/>
+                                            <label for="dataDeValidade"
+                                                   data-error="CPF/CNPJ é obrigatório">Data de Validade</label>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="dataDeValidade" type="text" class="validate" th:field="*{dataDeValidade}"
+                                                   th:classappend="${#fields.hasErrors('dataDeValidade')} ? invalid"/>
+                                            <label for="dataDeValidade"
+                                                   data-error="Telefone é obrigatório">dataDeValidade</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id=" valor" type=" valor" class="validate"
+                                                   th:field="*{valor}"
+                                                   th:classappend="${#fields.hasErrors(' valor')} ? invalid"/>
+
+                                            <label for=" valor"
+                                                   data-error="Não é um e-mail válido" data-success="Certo"> valor</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="valorPago" type="text" class="validate" th:field="*{valorPago}"/>
+                                            <label for="valorPago">valorPago</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <select id="entidade" type="text" class="validate" name="entidade" th:field="*{entidade}>
+                                                        <option value="" disabled="disabled" selected="selected">Selecione o entidade</option>
+                                            <option value="c">Carolina</option>
+                                            <option value="l">Lucas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <select id="tipoDePagamento" type="text" class="validate" name="tipoDePagamento" th:field="*{tipoDePagamento}>
+                                                        <option value="" disabled="disabled" selected="selected">Selecione o tipoDePagamento</option>
+                                            <option value="c">dinheiro</option>
+                                            <option value="l">cheque</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <select id="tipo" type="text" class="validate" name="tipo" th:field="*{tipo}>
+                                                        <option value="" disabled="disabled" selected="selected">Selecione o tipo</option>
+                                            <option value="c">Carolina</option>
+                                            <option value="l">Lucas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <form class="col s12">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <select id="situacao" type="text" class="validate" name="situacao" th:field="*{situacao}>
+                                                        <option value="" disabled="disabled" selected="selected">Selecione a situação</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="BA">Bahia</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <br/><br/>
+                                    <button class="btn waves-effect deep-purple darken-4" type="submit" name="action">Salvar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="card-action">
+                            <a href="#">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</html>
